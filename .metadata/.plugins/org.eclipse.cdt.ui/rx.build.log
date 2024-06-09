@@ -1,0 +1,20 @@
+14:57:18 **** Incremental Build of configuration Debug for project rx ****
+make -j11 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:62:13: warning: 'UART_Print' defined but not used [-Wunused-function]
+   62 | static void UART_Print(char* str)
+      |             ^~~~~~~~~~
+arm-none-eabi-gcc -o "rx.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/erik/Desktop/STM32L432KC-SPI-DMA/rx/STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rx.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: rx.elf
+ 
+arm-none-eabi-size  rx.elf 
+arm-none-eabi-objdump -h -S rx.elf  > "rx.list"
+   text	   data	    bss	    dec	    hex	filename
+  19872	     12	   1908	  21792	   5520	rx.elf
+Finished building: default.size.stdout
+ 
+Finished building: rx.list
+ 
+
+14:57:18 Build Finished. 0 errors, 1 warnings. (took 510ms)
+
